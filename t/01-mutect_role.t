@@ -4,7 +4,6 @@ use Test::Moose;
 use MooseX::ClassCompositor;
 use FindBin qw($Bin);
 use lib "$Bin/../lib";
-use BoutrosLab::Utilities::General;
 use Data::Dumper;
 use Env qw(TMPDIR);
 use File::Temp qw(tempdir tempfile);
@@ -36,9 +35,10 @@ my $mutect_run = $mutect->run_mutect(
 	coverage_file => $coverage_file,
 	out => $output,
 	dbsnp => $dbsnp,
-	cosmic => $cosmic
+	cosmic => $cosmic,
+	tmp => '/tmp'
 	);
 
-my $expected_cmd = '/usr/bin/java -Xmx8g -jar $MUTECTROOT/mutect.jar --analysis_type MuTect --reference_sequence hg19.fa --cosmic cosmic.vcf --dbsnp dbsnp.vcf --input_file:normal normal.bam --input_file:tumor tumour.bam --out sample.mutect.output.txt --coverage_file sample.mutect.coverage.wig';
+my $expected_cmd = '/usr/bin/java -Xmx8g -Djava.io.tmpdir=/tmp -jar $MUTECTROOT/mutect.jar --analysis_type MuTect --reference_sequence hg19.fa --cosmic cosmic.vcf --dbsnp dbsnp.vcf --input_file:normal normal.bam --input_file:tumor tumour.bam --out sample.mutect.output.txt --coverage_file sample.mutect.coverage.wig';
 
 is($mutect_run->{'cmd'}, $expected_cmd, 'MuTect command as expected');

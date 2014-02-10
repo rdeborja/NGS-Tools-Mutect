@@ -30,7 +30,31 @@ Run the Mutect somatic caller.
 
 =over 2
 
-=item * normal: Normal BAM file
+=item * mutect: Mutect JAR file to run.
+
+=item * normal: Normal BAM file.
+
+=item * tumour: Tumour BAM file.
+
+=item * reference: Reference genome in FASTA format.
+
+=item * cosmic: COSMIC VCF file.
+
+=item * dbsnp: DBSNP VCF file.
+
+=item * out: Name of call_stats output file.
+
+=item * coverage_file: Coverage output file.
+
+=item * memory: Amount of heap space allocation (default: 8)
+
+=item * intervals: Interval file to use, should containg chr:start-end
+
+=item * java: Java program to use (default: /usr/bin/java).
+
+=item * tmp: Temp directory to use (default: $TMPDIR).
+
+=item * cwd: 
 
 =back
 
@@ -94,11 +118,6 @@ sub run_mutect {
 			isa			=> 'Str',
 			required	=> 0,
 			default		=> $TMPDIR
-			},
-		cwd => {
-			isa			=> 'Str',
-			required	=> 0,
-			default		=> $PWD
 			}
 		);
 
@@ -115,6 +134,7 @@ sub run_mutect {
 	my $java = join(' ',
 		$args{'java'},
 		"-Xmx$memory",
+		"-Djava.io.tmpdir=" . $args{'tmp'},
 		'-jar',
 		$args{'mutect'}
 		);
