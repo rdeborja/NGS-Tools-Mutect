@@ -1,0 +1,9 @@
+Build.PL
+Changes
+exec/create_mutect_interval_file.pl
+lib/NGS/Tools/Mutect.pm
+lib/NGS/Tools/Mutect/Role.pm
+MANIFEST			This list of files
+README
+t/01-mutect_role.t
+t/02-mutect.t
