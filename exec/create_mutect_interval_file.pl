@@ -103,11 +103,17 @@ Print a brief help message and exit.
 
 Print the manual page.
 
+=item B<--fasta>
+
+FASTA file to process.  If a multi-FASTA file is used, separate files
+containing each contig name will be used generated.
+
 =back
 
 =head1 DESCRIPTION
 
-B<get_chr_from_fasta.pl> Create a set of target files used with MuTect.  This will appear as chrN:start-end.
+B<get_chr_from_fasta.pl> Create a set of target files used with MuTect.  This
+will appear as chrN:start-end.
 
 =head1 EXAMPLE
 
@@ -117,8 +123,11 @@ get_chr_from_fasta.pl --fasta file.fa
 
 Richard de Borja -- The Hospital for Sick Children
 
-=head1 SEE ALSO
+=head1 ACKNOWLEDGEMENTS
+
+Dr. Adam Shlien, PI -- The Hospital for Sick Children
+
+Dr. Roland Arnold -- The Hospital for Sick Children
 
 =cut
-
 
