@@ -4,13 +4,9 @@ use MooseX::Params::Validate;
 
 with 'NGS::Tools::Mutect::Role';
 
-use 5.006;
-use strict;
-use warnings FATAL => 'all';
-
 =head1 NAME
 
-NGS::Tools::Mutect - The great new NGS::Tools::Mutect!
+NGS::Tools::Mutect - DO NOT USE THIS DIRECTLY.  USE THE PROVIDED ROLES INSTEAD!!!
 
 =head1 VERSION
 
@@ -20,28 +16,6 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-
-=head1 SYNOPSIS
-
-A class containing methods to run the Mutect somatic calling algorithm.  This utilities Mutect Moose Roles found in this package.
-
-    use NGS::Tools::Mutect;
-
-    my $obj = NGS::Tools::Mutect->new();
-    ...
-
-=head1 SUBROUTINES/METHODS
-
-=head2 $obj->BUILD()
-
-Post-constructor initialization (called automatically as part of new())
-
-=cut
-
-sub BUILD {
-	my $self = shift;
-	my $args = shift;
-	}
 
 =head1 AUTHOR
 
@@ -131,9 +105,5 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 =cut
-
-no Moose;
-
-__PACKAGE__->meta->make_immutable;
 
 1; # End of NGS::Tools::Mutect
