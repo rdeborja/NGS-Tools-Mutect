@@ -5,7 +5,7 @@ use Module::Build;
 
 my $builder = Module::Build->new(
     module_name         => 'NGS::Tools::Mutect',
-    license             => 'Artistic_2_0',
+    license             => 'artistic_2',
     dist_author         => q{Richard de Borja <richard.deborja@sickkids.ca>},
     dist_version_from   => 'lib/NGS/Tools/Mutect.pm',
     release_status      => 'stable',
@@ -16,8 +16,9 @@ my $builder = Module::Build->new(
         'Test::More' => 0,
     },
     requires => {
-        #'ABC'              => 1.6,
-        #'Foo::Bar::Module' => 5.0401,
+				'Moose'											=> 2.0,
+				'Moose::Role'								=> 2.0,
+				'MooseX::Params::Validate'	=> 0
     },
     add_to_cleanup     => [ 'NGS-Tools-Mutect-*' ],
     create_makefile_pl => 'traditional',
