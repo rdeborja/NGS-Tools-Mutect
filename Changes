@@ -3,3 +3,6 @@ Revision history for NGS-Tools-Mutect
 0.01    2014-02-07
         Initial release of the MuTect analysis Perl API.
 
+0.02    2014-02-20
+        Added unmatched mode to the run_mutect method.  This allows for a
+        tumour to be analyzed without a matched normal.

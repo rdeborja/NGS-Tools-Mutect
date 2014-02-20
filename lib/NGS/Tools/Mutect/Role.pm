@@ -71,7 +71,8 @@ sub run_mutect {
 			},
 		normal => {
 			isa         => 'Str',
-			required    => 1
+			required    => 0,
+			default		=> ''
 			},
 		tumour => {
 			isa			=> 'Str',
@@ -143,11 +144,19 @@ sub run_mutect {
 		'--reference_sequence', $args{'reference'},
 		'--cosmic', $args{'cosmic'},
 		'--dbsnp', $args{'dbsnp'},
-		'--input_file:normal', $args{'normal'},
 		'--input_file:tumor', $args{'tumour'},
 		'--out', $args{'out'},
 		'--coverage_file', $args{'coverage_file'} 
 		);
+
+	# muTect can also be run in tumour only mode although this is highly
+	# not recommended
+	if ('' ne $args{'normal'}) {
+		$options = join(' ',
+			$options,
+			'--input_file:normal', $args{'normal'}
+			);
+		}
 
 	# setup the intervals, default to the size of the genome 
 	if ('' ne $args{'intervals'}) {
