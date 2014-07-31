@@ -48,7 +48,7 @@ Run the Mutect somatic caller.
 
 =item * memory: Amount of heap space allocation (default: 8)
 
-=item * intervals: Interval file to use, should containg chr:start-end
+=item * intervals: Interval file to use, should containing chr:start-end
 
 =item * java: Java program to use (default: /usr/bin/java).
 
@@ -118,7 +118,7 @@ sub run_mutect {
 		tmp => {
 			isa			=> 'Str',
 			required	=> 0,
-			default		=> $TMPDIR
+			default		=> ''
 			}
 		);
 
@@ -135,10 +135,23 @@ sub run_mutect {
 	my $java = join(' ',
 		$args{'java'},
 		"-Xmx$memory",
-		"-Djava.io.tmpdir=" . $args{'tmp'},
-		'-jar',
-		$args{'mutect'}
 		);
+    # create a tmpdir and use it in the java command
+    if ($args{'tmp'} ne '') {
+        if (! -d $args{'tmp'}) {
+            make_path($args{'tmp'});
+            }
+        $java = join(' ',
+            $java,
+            '-Djava.io.tmpdir=' . $args{'tmp'}
+            );
+        }
+    $java = join(' ',
+        $java,
+        '-jar',
+        $args{'mutect'}
+        );
+
 	my $program = '--analysis_type MuTect';
 	my $options = join(' ',
 		'--reference_sequence', $args{'reference'},
@@ -159,7 +172,7 @@ sub run_mutect {
 		}
 
 	# setup the intervals, default to the size of the genome 
-	if ('' ne $args{'intervals'}) {
+	if ($args{'intervals'} ne '') {
 		$options = join(' ',
 			$options,
 			'--intervals', $args{'intervals'}
@@ -176,6 +189,38 @@ sub run_mutect {
 		cmd => $cmd,
 		output => $args{'out'},
 		coverage => $args{'coverage_file'}
+		);
+
+	return(\%return_values);
+	}
+
+=head2 $obj->create_config()
+
+Create the configuration file containing the meta data for the Mutect run.
+
+=head3 Arguments:
+
+=over 2
+
+=item * arg: argument
+
+=back
+
+=cut
+
+sub create_config {
+	my $self = shift;
+	my %args = validated_hash(
+		\@_,
+		arg => {
+			isa         => 'Str',
+			required    => 0,
+			default     => ''
+			}
+		);
+
+	my %return_values = (
+
 		);
 
 	return(\%return_values);

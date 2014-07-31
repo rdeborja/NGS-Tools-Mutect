@@ -1,0 +1,51 @@
+{
+   "abstract" : "DO NOT USE THIS DIRECTLY.  USE THE PROVIDED ROLES INSTEAD!!!",
+   "author" : [
+      "Richard de Borja <richard.deborja@sickkids.ca>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4205",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "NGS-Tools-Mutect",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Moose" : "2",
+            "Moose::Role" : "2",
+            "MooseX::Params::Validate" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "NGS::Tools::Mutect" : {
+         "file" : "lib/NGS/Tools/Mutect.pm",
+         "version" : "0.03"
+      },
+      "NGS::Tools::Mutect::Role" : {
+         "file" : "lib/NGS/Tools/Mutect/Role.pm"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/artistic-license-2.0.php"
+      ]
+   },
+   "version" : "0.03"
+}

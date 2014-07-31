@@ -10,11 +10,11 @@ NGS::Tools::Mutect - DO NOT USE THIS DIRECTLY.  USE THE PROVIDED ROLES INSTEAD!!
 
 =head1 VERSION
 
-Version 0.01
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 AUTHOR

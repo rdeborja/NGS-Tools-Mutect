@@ -6,3 +6,7 @@ Revision history for NGS-Tools-Mutect
 0.02    2014-02-20
         Added unmatched mode to the run_mutect method.  This allows for a
         tumour to be analyzed without a matched normal.
+
+0.03    2014-06-30
+        Updated code to include temporary directory as a passed parameter,
+        general code cleanup.

@@ -3,6 +3,9 @@ Changes
 exec/create_mutect_interval_file.pl
 lib/NGS/Tools/Mutect.pm
 lib/NGS/Tools/Mutect/Role.pm
+Makefile.PL
 MANIFEST			This list of files
+META.json
+META.yml
 README
 t/01-mutect_role.t
