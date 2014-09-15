@@ -7,6 +7,7 @@ use warnings FATAL => 'all';
 use namespace::autoclean;
 use autodie;
 use Env qw(TMPDIR PWD);
+use File::Basename;
 
 =head1 NAME
 
@@ -189,6 +190,95 @@ sub run_mutect {
 		cmd => $cmd,
 		output => $args{'out'},
 		coverage => $args{'coverage_file'}
+		);
+
+	return(\%return_values);
+	}
+
+=head2 $obj->run_single_sample_mutect()
+
+Run the MuTect SNV caller in single sample mode.
+
+=head3 Arguments:
+
+=over 2
+
+=item * bam: BAM file to process
+
+=back
+
+=cut
+
+sub run_single_sample_mutect {
+	my $self = shift;
+	my %args = validated_hash(
+		\@_,
+		bam => {
+			isa         => 'Str',
+			required    => 1
+			},
+		output => {
+			isa			=> 'Str',
+			required	=> 0,
+			default		=> ''
+			},
+		reference => {
+			isa			=> 'Str',
+			required	=> 1
+			},
+		cosmic => {
+			isa			=> 'Str',
+			required	=> 1
+			},
+		dbsnp => {
+			isa			=> 'Str',
+			required	=> 1
+			},
+		out => {
+			isa			=> 'Str',
+			required	=> 0,
+			default		=> ''
+			},
+		coverage_file => {
+			isa			=> 'Str',
+			required	=> 0,
+			default		=> ''
+			},
+		memory => {
+			isa			=> 'Int',
+			required	=> 0,
+			default		=> 8
+			},
+		intervals => {
+			isa			=> 'Str',
+			required	=> 0,
+			default		=> ''
+			},
+		java => {
+			isa			=> 'Str',
+			required	=> 0,
+			default		=> '/usr/bin/java'
+			},
+		tmp => {
+			isa			=> 'Str',
+			required	=> 0,
+			default		=> ''
+			},
+		mutect => {
+			isa			=> 'Str',
+			required	=> 0,
+			default		=> '$MUTECTROOT/mutect.jar'
+			}
+		);
+
+	my $output;
+	if ($args{'output'} eq '') {
+
+		}
+
+	my %return_values = (
+		cmd => $cmd,
+		output => $output
 		);
 
 	return(\%return_values);
