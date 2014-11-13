@@ -5,13 +5,21 @@ WriteMakefile
   'NAME' => 'NGS::Tools::Mutect',
   'VERSION_FROM' => 'lib/NGS/Tools/Mutect.pm',
   'PREREQ_PM' => {
+                   'Data::Dumper' => 0,
+                   'File::Temp' => 0,
+                   'FindBin' => 0,
                    'Moose' => '2',
                    'Moose::Role' => '2',
+                   'MooseX::ClassCompositor' => 0,
                    'MooseX::Params::Validate' => 0,
+                   'Test::Exception' => 0,
+                   'Test::Moose' => 0,
                    'Test::More' => 0
                  },
   'INSTALLDIRS' => 'site',
-  'EXE_FILES' => [],
+  'EXE_FILES' => [
+                   'bin/create_mutect_interval_file.pl'
+                 ],
   'PL_FILES' => {}
 )
 ;

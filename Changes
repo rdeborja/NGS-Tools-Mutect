@@ -10,3 +10,7 @@ Revision history for NGS-Tools-Mutect
 0.03    2014-06-30
         Updated code to include temporary directory as a passed parameter,
         general code cleanup.
+
+0.04    2014-11-13
+        Code cleanup.  Added intervals to the run_mutect method and removed the
+        interval based mutect method.

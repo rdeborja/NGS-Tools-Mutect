@@ -30,7 +30,6 @@ lives_ok {
 
 # unmatched mode
 my $mutect_run = $mutect->run_mutect(
-#	normal => $normal,
 	tumour => $tumour,
 	reference => $reference,
 	coverage_file => $coverage_file,
@@ -39,7 +38,18 @@ my $mutect_run = $mutect->run_mutect(
 	cosmic => $cosmic,
 	tmp => '/tmp'
 	);
-my $expected_cmd = '/usr/bin/java -Xmx8g -Djava.io.tmpdir=/tmp -jar $MUTECTROOT/mutect.jar --analysis_type MuTect --reference_sequence hg19.fa --cosmic cosmic.vcf --dbsnp dbsnp.vcf --input_file:tumor tumour.bam --out sample.mutect.output.txt --coverage_file sample.mutect.coverage.wig';
+my $expected_cmd = join(' ',
+	'/usr/bin/java -Xmx8g',
+	'-Djava.io.tmpdir=/tmp',
+	'-jar $MUTECTROOT/mutect.jar',
+	'--analysis_type MuTect',
+	'--reference_sequence hg19.fa',
+	'--cosmic cosmic.vcf',
+	'--dbsnp dbsnp.vcf',
+	'--input_file:tumor tumour.bam',
+	'--out sample.mutect.output.txt',
+	'--coverage_file sample.mutect.coverage.wig'
+	);
 is($mutect_run->{'cmd'}, $expected_cmd, 'MuTect unmatched command as expected');
 
 $mutect_run = $mutect->run_mutect(
@@ -52,5 +62,17 @@ $mutect_run = $mutect->run_mutect(
 	cosmic => $cosmic,
 	tmp => '/tmp'
 	);
-$expected_cmd = '/usr/bin/java -Xmx8g -Djava.io.tmpdir=/tmp -jar $MUTECTROOT/mutect.jar --analysis_type MuTect --reference_sequence hg19.fa --cosmic cosmic.vcf --dbsnp dbsnp.vcf --input_file:tumor tumour.bam --out sample.mutect.output.txt --coverage_file sample.mutect.coverage.wig --input_file:normal normal.bam';
+$expected_cmd = join(' ',
+	'/usr/bin/java -Xmx8g',
+	'-Djava.io.tmpdir=/tmp',
+	'-jar $MUTECTROOT/mutect.jar',
+	'--analysis_type MuTect',
+	'--reference_sequence hg19.fa',
+	'--cosmic cosmic.vcf',
+	'--dbsnp dbsnp.vcf',
+	'--input_file:tumor tumour.bam',
+	'--out sample.mutect.output.txt',
+	'--coverage_file sample.mutect.coverage.wig',
+	'--input_file:normal normal.bam'
+	);
 is($mutect_run->{'cmd'}, $expected_cmd, 'MuTect command as expected');

@@ -1,8 +1,14 @@
 ---
-abstract: 'DO NOT USE THIS DIRECTLY.  USE THE PROVIDED ROLES INSTEAD!!!'
+abstract: 'Perl wrapper for MuTect'
 author:
   - 'Richard de Borja <richard.deborja@sickkids.ca>'
 build_requires:
+  Data::Dumper: 0
+  File::Temp: 0
+  FindBin: 0
+  MooseX::ClassCompositor: 0
+  Test::Exception: 0
+  Test::Moose: 0
   Test::More: 0
 configure_requires:
   Module::Build: 0
@@ -16,7 +22,7 @@ name: NGS-Tools-Mutect
 provides:
   NGS::Tools::Mutect:
     file: lib/NGS/Tools/Mutect.pm
-    version: 0.03
+    version: 0.04
   NGS::Tools::Mutect::Role:
     file: lib/NGS/Tools/Mutect/Role.pm
     version: 0
@@ -26,4 +32,4 @@ requires:
   MooseX::Params::Validate: 0
 resources:
   license: http://opensource.org/licenses/artistic-license-2.0.php
-version: 0.03
+version: 0.04
