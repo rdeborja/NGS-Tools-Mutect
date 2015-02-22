@@ -14,3 +14,7 @@ Revision history for NGS-Tools-Mutect
 0.04    2014-11-13
         Code cleanup.  Added intervals to the run_mutect method and removed the
         interval based mutect method.
+
+0.05    2015-02-22
+        Added File::Path to the list of required libraries to the Role.pm and
+        Build.PL files.

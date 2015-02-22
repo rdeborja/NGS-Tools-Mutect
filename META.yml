@@ -3,33 +3,33 @@ abstract: 'Perl wrapper for MuTect'
 author:
   - 'Richard de Borja <richard.deborja@sickkids.ca>'
 build_requires:
-  Data::Dumper: 0
-  File::Temp: 0
-  FindBin: 0
-  MooseX::ClassCompositor: 0
-  Test::Exception: 0
-  Test::Moose: 0
-  Test::More: 0
+  Data::Dumper: '0'
+  File::Temp: '0'
+  FindBin: '0'
+  MooseX::ClassCompositor: '0'
+  Test::Exception: '0'
+  Test::Moose: '0'
+  Test::More: '0'
 configure_requires:
-  Module::Build: 0
+  Module::Build: '0'
 dynamic_config: 1
-generated_by: 'Module::Build version 0.4205, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Module::Build version 0.421, CPAN::Meta::Converter version 2.143240'
 license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: NGS-Tools-Mutect
 provides:
   NGS::Tools::Mutect:
     file: lib/NGS/Tools/Mutect.pm
-    version: 0.04
+    version: '0.05'
   NGS::Tools::Mutect::Role:
     file: lib/NGS/Tools/Mutect/Role.pm
-    version: 0
 requires:
-  Moose: 2
-  Moose::Role: 2
-  MooseX::Params::Validate: 0
+  File::Path: '2.09'
+  Moose: '2'
+  Moose::Role: '2'
+  MooseX::Params::Validate: '0'
 resources:
   license: http://opensource.org/licenses/artistic-license-2.0.php
-version: 0.04
+version: '0.05'

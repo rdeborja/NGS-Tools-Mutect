@@ -25,7 +25,8 @@ my $builder = Module::Build->new(
     requires => {
         'Moose'                     => 2.0,
         'Moose::Role'               => 2.0,
-        'MooseX::Params::Validate'  => 0
+        'MooseX::Params::Validate'  => 0,
+        'File::Path'                => 2.09
     },
     add_to_cleanup     => [ 'NGS-Tools-Mutect-*' ],
     create_makefile_pl => 'traditional',
