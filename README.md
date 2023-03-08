@@ -1,18 +1,19 @@
-NGS-Tools-Mutect
+# NGS-Tools-Mutect
 
 A suite of tools to wrap the MuTect somatic classification tool
 using Perl.
 
-INSTALLATION
+## INSTALLATION
 
 To install this module, run the following commands:
-
+```
 	perl Build.PL
 	./Build
 	./Build test
 	./Build install
+```
 
-SUPPORT AND DOCUMENTATION
+## SUPPORT AND DOCUMENTATION
 
 After installing, you can find documentation for this module with the
 perldoc command.
@@ -34,9 +35,9 @@ You can also look for information at:
         http://search.cpan.org/dist/NGS-Tools-Mutect/
 
 
-LICENSE AND COPYRIGHT
+## LICENSE AND COPYRIGHT
 
-Copyright (C) 2014 Richard de Borja
+Copyright (C) 2023 Richard de Borja
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
